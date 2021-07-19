@@ -41,13 +41,11 @@ msgstr "基本设置"
 msgid "App Filter Rules"
 msgstr "应用过滤规则"
 
-msgid "Select at least one user, otherwise it will take effect for all users"
+msgid "If not selected, it will take effect for all devices"
 msgstr "如不选择则对所有设备生效"
 
-msgid "Select users"
-msgstr "选择用户"
+msgid "Select devices"
+msgstr "选择设备"
 
 msgid "Enable App Filter"
 msgstr "开启应用过滤"
-
-

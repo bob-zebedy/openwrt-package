@@ -153,7 +153,7 @@ function get_cmd_result(command)
 	return result  
 end
 
-s=m:section(TypedSection,"user",translate("Select users"))
+s=m:section(TypedSection,"user",translate("Select devices"))
 s.anonymous = true
 users = s:option(MultiValue, "users", "", translate("If not selected, it will take effect for all devices"))
 users.widget="checkbox"
