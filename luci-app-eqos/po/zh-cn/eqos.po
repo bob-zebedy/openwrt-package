@@ -1,5 +1,5 @@
 msgid "EQoS"
-msgstr "QoS"
+msgstr "QoS管理"
 
 msgid "Enable"
 msgstr "启用"
