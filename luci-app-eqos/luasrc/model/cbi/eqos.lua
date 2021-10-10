@@ -8,16 +8,13 @@ s.anonymous = true
 local e = s:option(Flag, "enabled", translate("Enable"))
 e.rmempty = false
 
-local dl = s:option(Value, "download", translate("Download speed (Mbit/s)"),
-                    translate("Total bandwidth"))
+local dl = s:option(Value, "download", translate("Download speed (Mbit/s)"), translate("Total bandwidth"))
 dl.datatype = "and(uinteger,min(1))"
 
-local ul = s:option(Value, "upload", translate("Upload speed (Mbit/s)"),
-                    translate("Total bandwidth"))
+local ul = s:option(Value, "upload", translate("Upload speed (Mbit/s)"), translate("Total bandwidth"))
 ul.datatype = "and(uinteger,min(1))"
 
-s = m:section(TypedSection, "device",
-              translate("Speed limit based on IP address"))
+s = m:section(TypedSection, "device", translate("Speed limit based on IP address"))
 s.template = "cbi/tblsection"
 s.anonymous = true
 s.addremove = true
