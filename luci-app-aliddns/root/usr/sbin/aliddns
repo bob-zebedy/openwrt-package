@@ -129,6 +129,6 @@ else
         query_result=$(query_recordid)
         check_aliddns
         go_record
-        add_aliddns_cron
     fi
+    add_aliddns_cron
 fi
