@@ -117,7 +117,7 @@ clean_log(){
 
 stop_aliddns(){
     sed -i '/aliddns/d' /etc/crontabs/root >/dev/null 2>&1
-    uci delete aliddns.base.record_id
+    uci set aliddns.base.record_id=0
     uci commit
 }
 
