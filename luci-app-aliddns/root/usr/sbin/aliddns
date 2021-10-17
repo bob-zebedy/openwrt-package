@@ -125,9 +125,11 @@ if [ "$aliddns_enable" != "1" ]; then
     stop_aliddns
     clean_log
 else
-    clean_log
-    query_result=$(query_recordid)
-    check_aliddns
-    go_record
-    add_aliddns_cron  
+    if [ -n "$local_ip" ]; then
+        clean_log
+        query_result=$(query_recordid)
+        check_aliddns
+        go_record
+        add_aliddns_cron
+    fi  
 fi
