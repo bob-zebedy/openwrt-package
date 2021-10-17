@@ -28,8 +28,7 @@ check_aliddns() {
     json_select 1 >/dev/null 2>&1
     json_get_var ddns_ip "Value"
 
-    echolog "本地 IP: ${local_ip}"
-    echolog "DNS IP: ${ddns_ip}"
+    echolog "本地 IP: ${local_ip} DNS IP: ${ddns_ip}"
 }
 
 urlencode() {
