@@ -131,5 +131,5 @@ else
         check_aliddns
         go_record
         add_aliddns_cron
-    fi  
+    fi
 fi
