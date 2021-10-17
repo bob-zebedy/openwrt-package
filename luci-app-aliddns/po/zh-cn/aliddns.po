@@ -11,7 +11,7 @@ msgid "Interface"
 msgstr "接口"
 
 msgid "Choice interface"
-msgstr "选择要DDNS接口"
+msgstr "选择 IP 来源接口"
 
 msgid "Domain"
 msgstr "域名"
