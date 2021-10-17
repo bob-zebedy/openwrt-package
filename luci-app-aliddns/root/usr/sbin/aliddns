@@ -14,6 +14,8 @@ log_file=/var/log/aliddns.log
 
 . /usr/share/libubox/jshn.sh
 
+touch $log_file
+
 echolog() {
 	local d=$(date '+%Y-%m-%d %H:%M:%S')
 	echo -e "[$d]  $*" >> $log_file
@@ -100,9 +102,9 @@ add_aliddns_cron(){
 }
 
 clean_log(){
-    logrow=$(grep -c "" /var/log/aliddns.log)
+    logrow=$(grep -c "" $log_file)
     if [ $logrow -ge 100 ]; then
-        cat /dev/null > /var/log/aliddns.log
+        cat /dev/null > $log_file
         echolog "日志超出限制, 已清空"
     fi
 }
