@@ -26,10 +26,10 @@ check_aliddns() {
     json_select "DomainRecords" >/dev/null 2>&1
     json_select "Record" >/dev/null 2>&1
     json_select 1 >/dev/null 2>&1
-    json_get_var dns_ip "Value"
+    json_get_var ddns_ip "Value"
 
     echolog "本地 IP: ${local_ip}"
-    echolog "DNS IP: ${dns_ip}"
+    echolog "DNS IP: ${ddns_ip}"
 }
 
 urlencode() {
@@ -74,7 +74,7 @@ go_record() {
     aliddns_record_id=`echo $query_result | get_recordid`
     if [ -n "$aliddns_record_id" ]; then
         if [ "$local_record_id" == "$aliddns_record_id" ]; then
-            if [ "${local_ip}" != "${dns_ip}" ]; then
+            if [ "${local_ip}" != "${ddns_ip}" ]; then
                 update_record $aliddns_record_id
                 echolog "更新A记录 (${local_ip})"
             fi
