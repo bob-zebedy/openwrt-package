@@ -1,0 +1,30 @@
+msgid "AliDDNS"
+msgstr "阿里DDNS"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Enable"
+msgstr "启用"
+
+msgid "Interface"
+msgstr "接口"
+
+msgid "Choice interface"
+msgstr "选择要DDNS接口"
+
+msgid "Domain"
+msgstr "域名"
+
+msgid "Host"
+msgstr "主机名"
+
+msgid "Check interval"
+msgstr "检查时间间隔"
+
+msgid "Check interval (1-59) min"
+msgstr "时间间隔[1-59]min"
+
+msgid "log"
+msgstr "日志"
+
