@@ -23,7 +23,7 @@ msgid "Check interval"
 msgstr "检查时间间隔"
 
 msgid "Check interval (1-59) min"
-msgstr "时间间隔[1-59]min"
+msgstr "时间间隔(min)[1-59]"
 
 msgid "log"
 msgstr "日志"
