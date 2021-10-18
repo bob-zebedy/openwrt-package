@@ -49,13 +49,13 @@ tvlog.wrap = "off"
 function tvlog.cfgvalue(e, e)
     sylogtext = ""
     if a and nixio.fs.access(a) then
-        sylogtext = luci.sys.exec("tail -n 100 %s" % a)
+        sylogtext = luci.sys.exec("tail -n 100 %s | sort -r" % a)
     end
     return sylogtext
 end
 tvlog.write = function(e, e, e) end
 local e = luci.http.formvalue("cbi.apply")
 if e then 
-    io.popen("/etc/init.d/aliddns restart") 
+    io.popen("/etc/init.d/aliddns restart")
 end
 return t
