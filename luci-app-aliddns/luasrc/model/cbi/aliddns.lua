@@ -41,15 +41,15 @@ time.rmempty = false
 e:tab("log", translate("log"))
 e.anonymous = true
 
-local a = "/var/log/aliddns.log"
+local logfile = "/var/log/aliddns.log"
 tvlog = e:taboption("log", TextValue, "sylogtext")
 tvlog.rows = 30
 tvlog.readonly = "readonly"
 tvlog.wrap = "off"
 function tvlog.cfgvalue(e, e)
     sylogtext = ""
-    if a and nixio.fs.access(a) then
-        sylogtext = luci.sys.exec("tail -n 100 %s | sort -r" % a)
+    if logfile and nixio.fs.access(logfile) then
+        sylogtext = luci.sys.exec("tail -n 100 %s | sort -r" % logfile)
     end
     return sylogtext
 end
