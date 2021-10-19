@@ -7,6 +7,6 @@ function index()
 
     local page
     
-    page = entry({"admin", "services", "aliddns"}, cbi("aliddns"), _("AliDDNS"), 30)
+    page = entry({"admin", "services", "aliddns"}, cbi("aliddns"), _("DDNS"), 30)
     page.dependent = true
 end
