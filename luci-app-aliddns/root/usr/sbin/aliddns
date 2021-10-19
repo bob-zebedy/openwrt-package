@@ -27,8 +27,11 @@ check_aliddns() {
     json_select "Record" >/dev/null 2>&1
     json_select 1 >/dev/null 2>&1
     json_get_var ddns_ip "Value"
-
-    echolog "本地 IP: ${local_ip} DNS IP: ${ddns_ip}"
+    if [ "${local_ip}" == "${ddns_ip}" ]; then
+        echolog "IP 无变更 $local_ip"
+    else
+        echolog "IP 已变更 ${ddns_ip} -> ${local_ip}"
+    fi
 }
 
 urlencode() {
@@ -75,25 +78,23 @@ go_record() {
         if [ "$local_record_id" == "$aliddns_record_id" ]; then
             if [ "${local_ip}" != "${ddns_ip}" ]; then
                 update_record $aliddns_record_id
-                echolog "更新A记录 (${local_ip})"
+                echolog "更新 DDNS 记录 $aliddns_name.$aliddns_domain -> ${local_ip}"
             fi
         else
             uci set aliddns.base.record_id=$aliddns_record_id
             uci commit
             update_record $aliddns_record_id
-            echolog "更新 Record id ($aliddns_record_id)"
-            echolog "更新A记录 (${local_ip})"
+            echolog "更新 DDNS 记录 $aliddns_name.$aliddns_domain -> ${local_ip}"
         fi
     else
         aliddns_record_id=`add_record | get_recordid`
         if [ -z "$aliddns_record_id" ]; then
-            echolog "添加A记录错误"
+            echolog "新增 DDNS 记录错误"
         else
             uci set aliddns.base.record_id=$aliddns_record_id
             uci commit
             update_record $aliddns_record_id
-            echolog "新增 Record id ($aliddns_record_id)"
-            echolog "新增A记录 (${local_ip})"
+            echolog "新增 DDNS 记录 $aliddns_name.$aliddns_domain -> ${local_ip}"
         fi
     fi
 }
@@ -110,7 +111,7 @@ clean_log(){
     logrow=$(grep -c "" $log_file)
     if [ $logrow -ge 100 ]; then
         cat /dev/null > $log_file
-        echolog "日志超出限制, 已清空"
+        echolog "日志超出100条限制, 已清空"
     fi
 }
 
