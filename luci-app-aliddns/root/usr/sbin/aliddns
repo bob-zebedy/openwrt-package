@@ -100,7 +100,7 @@ go_record() {
 }
 
 add_aliddns_cron(){
-    wirtecron=$(cat /etc/crontabs/root | grep "$time * * * *" | grep aliddns)
+    wirtecron=$(cat /etc/crontabs/root | grep "/usr/sbin/aliddns")
     if [ -z "$wirtecron" ]; then
         sed -i '/aliddns/d' /etc/crontabs/root >/dev/null 2>&1
         echo "*/$time * * * * /usr/sbin/aliddns" >> /etc/crontabs/root 

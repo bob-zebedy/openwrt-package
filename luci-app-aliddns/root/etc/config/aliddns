@@ -1,9 +1,9 @@
 config base 'base'
-	option enable '0'
-	option app_key ''
-	option app_secret ''
-	option interface ''
-	option domain ''
-	option host ''
-	option time '5'
-	option record_id ''
+	option enable 		0
+	option app_key 		''
+	option app_secret 	''
+	option interface 	''
+	option domain 		''
+	option host 		''
+	option time 		0
+	option record_id 	0
