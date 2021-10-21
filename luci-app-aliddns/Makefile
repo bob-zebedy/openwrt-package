@@ -1,11 +1,11 @@
 #
-# Copyright (C) 2006-2017 Bobby
+# Copyright (C) 2021 Bobby
 #
 
 include $(TOPDIR)/rules.mk
 
 LUCI_TITLE:=LuCI support for Aliddns
-LUCI_DESCRIPTION:=LuCI support for Aliddns
+LUCI_DESCRIPTION:=LuCI interface for Aliddns
 LUCI_DEPENDS:=+wget +openssl-util
 LUCI_PKGARCH:=all
 
