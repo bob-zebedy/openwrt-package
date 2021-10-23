@@ -111,7 +111,6 @@ clean_log(){
     logrow=$(grep -c "" $log_file)
     if [ $logrow -ge 100 ]; then
         cat /dev/null > $log_file
-        echolog "日志超出100条限制, 已清空"
     fi
 }
 
