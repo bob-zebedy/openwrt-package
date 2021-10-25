@@ -1,0 +1,23 @@
+msgid "IPSec VPN Server"
+msgstr "IPSec VPN 服务器"
+
+msgid "VPN Client IP"
+msgstr "客户端IP段"
+
+msgid "LAN DHCP reserved started IP addresses with the same subnet mask"
+msgstr "客户端使用独立子网段, 默认为 10.10.10.2/24"
+
+msgid "VPN Client DNS"
+msgstr "客户端DNS服务器"
+
+msgid "DNS using in VPN tunnel.Set to the router's LAN IP is recommended"
+msgstr "客户端的DNS地址, 默认为 ipsec0 接口地址 10.10.10.1"
+
+msgid "Account"
+msgstr "账号"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Secret Pre-Shared Key"
+msgstr "预共享密钥"
