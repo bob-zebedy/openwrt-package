@@ -1,5 +1,5 @@
-msgid "IPSec VPN Server"
-msgstr "IPSec VPN 服务器"
+msgid "IPSec VPN"
+msgstr "IPSec VPN"
 
 msgid "VPN Client IP"
 msgstr "客户端IP段"
