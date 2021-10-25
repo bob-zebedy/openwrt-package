@@ -1,5 +1,5 @@
 
-mp = Map("ipsec", translate("IPSec VPN Server"))
+mp = Map("ipsec", translate("IPSec VPN"))
 
 mp:section(SimpleSection).template  = "ipsec/ipsec_status"
 
