@@ -81,7 +81,7 @@ function capture_start(ifname, stop_value, stop_unit, filter)
 		else
 			os.execute("mkdir -p " .. tcpdump_cap_folder)
 			os.execute("mkdir -p " .. tcpdump_filter_folder)
-			local prefix = "capture_" .. os.date("%Y-%m-%d_%H.%M.%S")
+			local prefix = "capture_" .. os.date("%Y%m%d%H%M%S")
 			local pcap_file = tcpdump_cap_folder .. prefix .. ".pcap"
 			local filter_file = tcpdump_filter_folder .. prefix .. ".filter"
 			string_to_file(filter_file, filter)
