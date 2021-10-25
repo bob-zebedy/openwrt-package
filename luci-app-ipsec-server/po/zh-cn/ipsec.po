@@ -11,7 +11,7 @@ msgid "VPN Client DNS"
 msgstr "客户端DNS服务器"
 
 msgid "DNS using in VPN tunnel.Set to the router's LAN IP is recommended"
-msgstr "客户端的DNS地址, 默认为 ipsec0 接口地址 10.10.10.1"
+msgstr "默认为 ipsec0 接口地址 10.10.10.1"
 
 msgid "Account"
 msgstr "账号"
