@@ -21,10 +21,10 @@ token = e:taboption("basic", Value, "app_key", translate("AccessKey ID"))
 email = e:taboption("basic", Value, "app_secret", translate("Secret"))
 iface = e:taboption("basic", ListValue, "interface", translate("Interface"))
 iface.description = translate("Choice interface")
-for t, e in ipairs(a.net.devices()) do 
-    if e ~= "lo" then 
-        iface:value(e) 
-    end 
+for t, e in ipairs(a.net.devices()) do
+    if e ~= "lo" then
+        iface:value(e)
+    end
 end
 iface.rmempty = false
 
@@ -46,16 +46,17 @@ tvlog = e:taboption("log", TextValue, "sylogtext")
 tvlog.rows = 30
 tvlog.readonly = "readonly"
 tvlog.wrap = "off"
-function tvlog.cfgvalue(e, e)
+function tvlog.cfgvalue(m, n)
     sylogtext = ""
     if logfile and nixio.fs.access(logfile) then
         sylogtext = luci.sys.exec("tail -n 100 %s | sort -r" % logfile)
     end
     return sylogtext
 end
-tvlog.write = function(e, e, e) end
+tvlog.write = function(m, n, t)
+end
 local e = luci.http.formvalue("cbi.apply")
-if e then 
+if e then
     io.popen("/etc/init.d/aliddns restart")
 end
 return t
