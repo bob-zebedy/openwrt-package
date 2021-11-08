@@ -1,7 +1,6 @@
-
 mp = Map("ipsec", translate("IPSec VPN"))
 
-mp:section(SimpleSection).template  = "ipsec/ipsec_status"
+mp:section(SimpleSection).template = "ipsec/ipsec_status"
 
 s = mp:section(NamedSection, "ipsec", "service")
 s.anonymouse = true

@@ -22,9 +22,15 @@ s.sortable = true
 
 local ip = s:option(Value, "ip", translate("IP address"))
 
-ipc.neighbors({family = 4, dev = "br-lan"}, function(n)
+ipc.neighbors({
+    family = 4,
+    dev = "br-lan"
+}, function(n)
     if n.mac and n.dest then
-        ip:value(n.dest:string(), "%s (%s)" % {n.dest:string(), n.mac})
+        ip:value(n.dest:string(), "%s (%s)" % {
+            n.dest:string(),
+            n.mac
+        })
     end
 end)
 
