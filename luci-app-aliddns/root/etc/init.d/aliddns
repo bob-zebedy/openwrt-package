@@ -2,17 +2,14 @@
 
 START=95
 
-restart()
-{
+restart() {
 	/usr/sbin/aliddns
 }
 
-start()
-{
+start() {
 	/usr/sbin/aliddns
 }
 
-stop()
-{
+stop() {
 	/usr/sbin/aliddns
 }
