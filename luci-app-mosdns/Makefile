@@ -9,8 +9,9 @@ PKG_VERSION:=1.0
 PKG_RELEASE:=1
 
 LUCI_TITLE:=LuCI Support for mosdns
-LUCI_PKGARCH:=all
+LUCI_DESCRIPTION:=LuCI interface for mosdns
 LUCI_DEPENDS:=+mosdns +jsonfilter
+LUCI_PKGARCH:=all
 
 define Package/$(PKG_NAME)/conffiles
 /etc/mosdns/config.yaml
