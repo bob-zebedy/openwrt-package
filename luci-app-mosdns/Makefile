@@ -1,3 +1,7 @@
+#
+# Copyright (C) 2021 Bobby
+#
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-mosdns
