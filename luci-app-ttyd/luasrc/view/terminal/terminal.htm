@@ -1,0 +1,13 @@
+<%+header%>
+<div class="cbi-map">
+    <h2 name="content"><%=translate("Terminal")%></h2>
+    <iframe id="terminal" style="width: 100%; border: none; border-radius: 3px;"></iframe>
+</div>
+<script type="text/javascript">
+    document.getElementById("terminal").src = window.location.protocol + "//" + window.location.hostname + ":7681";
+    document.getElementById("terminal").height = Math.floor(window.innerHeight * 0.8);
+    window.onresize = function(){
+        document.getElementById("terminal").height = Math.floor(window.innerHeight * 0.8);
+    }
+</script>
+<%+footer%>
