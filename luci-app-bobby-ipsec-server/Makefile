@@ -4,7 +4,7 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=luci-app-ipsec-bobby-server
+PKG_NAME:=luci-app-bobby-ipsec-server
 PKG_VERSION:=1.0
 PKG_RELEASE:=1
 
