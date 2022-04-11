@@ -7,6 +7,18 @@ msgstr "设置"
 msgid "Enable"
 msgstr "启用"
 
+msgid "Enable"
+msgstr "启用"
+
+msgid "Telegram Bot Notify"
+msgstr "Telegram 通知"
+
+msgid "Telegram Bot Token"
+msgstr "Telegram Bot Token"
+
+msgid "Telegram Chat ID"
+msgstr "Telegram Chat ID"
+
 msgid "Interface"
 msgstr "接口"
 

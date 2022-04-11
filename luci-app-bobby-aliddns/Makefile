@@ -10,7 +10,7 @@ PKG_RELEASE:=1
 
 LUCI_TITLE:=LuCI support for Aliddns By Bobby
 LUCI_DESCRIPTION:=LuCI interface for Aliddns By Bobby
-LUCI_DEPENDS:=+wget +openssl-util
+LUCI_DEPENDS:=+wget +curl +openssl-util
 LUCI_PKGARCH:=all
 
 include $(TOPDIR)/feeds/luci/luci.mk

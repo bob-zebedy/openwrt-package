@@ -17,6 +17,15 @@ e:tab("basic", translate("Settings"))
 enable = e:taboption("basic", Flag, "enable", translate("Enable"))
 enable.rmempty = false
 
+telegram_notify = e:taboption("basic", Flag, "telegram_notify", translate("Telegram Bot Notify"))
+telegram_notify.rmempty = false
+
+telegram_token = e:taboption("basic", Value, "telegram_token", translate("Telegram Bot Token"))
+telegram_token:depends("telegram_notify", 1)
+
+telegram_chatid = e:taboption("basic", Value, "telegram_chatid", translate("Telegram Chat ID"))
+telegram_chatid:depends("telegram_notify", 1)
+
 token = e:taboption("basic", Value, "app_key", translate("AccessKey ID"))
 email = e:taboption("basic", Value, "app_secret", translate("Secret"))
 iface = e:taboption("basic", ListValue, "interface", translate("Interface"))
