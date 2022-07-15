@@ -22,7 +22,7 @@ if luci.sys.call("cat /etc/openwrt_release | grep -q mt762") == 0 and not nixio.
     hw_flow:depends("sw_flow", 1)
 end
 
-if nixio.fs.access("/lib/modules/" .. kernel_version .. "/shortcut-fe-cm.ko") then
+if nixio.fs.access("/lib/modules/" .. kernel_version .. "/shortcut-fe-cm.ko") or nixio.fs.access("/lib/modules/" .. kernel_version .. "/fast-classifier.ko") then
     sfe_flow = s:option(Flag, "sfe_flow", translate("Shortcut-FE flow offloading"))
     sfe_flow.default = 0
     sfe_flow.description = translate("Shortcut-FE based offloading for routing/NAT")
