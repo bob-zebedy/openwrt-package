@@ -216,26 +216,23 @@ change_dns() {
 	uci add_list dhcp.@dnsmasq[0].server="127.0.0.1#5333"
 	uci set dhcp.@dnsmasq[0].noresolv="1"
 	uci commit dhcp
-
-	touch "/var/run/dnscache/.dns-changed"
 }
 
 revert_dns() {
-	[ -e "/var/run/dnscache/.dns-changed" ] || return 1
-
-	uci -q del_list dhcp.@dnsmasq[0].server="127.0.0.1#5333"
-	uci set dhcp.@dnsmasq[0].resolvfile="/tmp/resolv.conf.d/resolv.conf.auto"
 	uci set dhcp.@dnsmasq[0].noresolv="0"
+	uci -q del_list dhcp.@dnsmasq[0].server="127.0.0.1#5333"
+	if [ -d "/tmp/resolv.conf.d" ]; then
+		uci set dhcp.@dnsmasq[0].resolvfile="/tmp/resolv.conf.d/resolv.conf.auto"
+	else
+		uci set dhcp.@dnsmasq[0].resolvfile="/tmp/resolv.conf.auto"
+	fi
 	uci commit dhcp
-
-	rm -f "/var/run/dnscache/.dns-changed"
 }
 
 load_sfe() {
 	local kernel_version=$(uname -r)
 
 	[ -e "/lib/modules/$kernel_version/shortcut-fe-cm.ko" ] && modprobe shortcut-fe-cm
-
 	[ -e "/lib/modules/$kernel_version/fast-classifier.ko" ] && modprobe fast-classifier
 }
 
@@ -280,6 +277,7 @@ start() {
 		fi
 
 		change_dns
+
 		/usr/share/dnscache/dnscache-while.sh >"/var/log/dnscache.file" 2>&1 &
 	else
 		revert_dns
