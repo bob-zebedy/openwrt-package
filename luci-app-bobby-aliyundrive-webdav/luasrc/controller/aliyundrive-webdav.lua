@@ -11,7 +11,7 @@ function index()
         "admin",
         "services",
         "aliyundrive-webdav"
-    }, alias("admin", "services", "aliyundrive-webdav", "client"), _("AliyunDrive WebDAV"), 50)
+    }, alias("admin", "services", "aliyundrive-webdav", "client"), _("WebDAV"), 50)
     page.dependent = true
     page.acl_depends = {
         "luci-app-aliyundrive-webdav"

@@ -4,9 +4,9 @@
 			var tb = document.getElementById('aliyundrive-webdav_status');
 			if (data && tb) {
 				if (data.running) {
-					tb.innerHTML = '<em><b style=color:green>' + data.application + '<%:RUNNING%></b></em>';
+					tb.innerHTML = '<b style=color:green>' + data.application + '<%:RUNNING%></b>';
 				} else {
-					tb.innerHTML = '<em><b style=color:red>' + data.application + '<%:NOT RUNNING%></b></em>';
+					tb.innerHTML = '<b style=color:red>' + data.application + '<%:NOT RUNNING%></b>';
 				}
 			}
 		}
