@@ -19,12 +19,6 @@ msgstr "监听主机"
 msgid "Port"
 msgstr "监听端口"
 
-msgid "TLS certificate file path"
-msgstr "TLS 证书文件路径"
-
-msgid "TLS private key file path"
-msgstr "TLS 私钥文件路径"
-
 msgid "Username"
 msgstr "用户名"
 
@@ -75,9 +69,6 @@ msgstr "只读模式"
 
 msgid "Disallow upload, modify and delete file operations"
 msgstr "禁止上传、修改和删除文件操作"
-
-msgid "Domain ID"
-msgstr "阿里云相册与云盘服务 Domain ID"
 
 msgid "Skip uploading same size files"
 msgstr "跳过上传相同大小的文件"
