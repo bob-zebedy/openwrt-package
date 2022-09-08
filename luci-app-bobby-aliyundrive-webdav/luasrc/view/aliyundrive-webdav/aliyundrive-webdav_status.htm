@@ -11,7 +11,19 @@
 			}
 		}
 	);
-//]]>
+
+	function invalidateCache(button) {
+		XHR.get('<%=url([[admin]], [[services]], [[aliyundrive-webdav]], [[invalidate-cache]])%>', null,
+			function (x, data) {
+				if (data.ok) {
+					alert("缓存已清除");
+				} else {
+					alert("清除缓存失败");
+				}
+			}
+		);
+	}
+	//]]>
 </script>
 <style>
 	.mar-10 {
@@ -20,9 +32,12 @@
 	}
 </style>
 <fieldset class="cbi-section">
-	<p id="aliyundrive-webdav_status">
-		<em>
-			<%:Collecting data...%>
-		</em>
+	<p id="aliyundrive-webdav_status" style="float: left; width: 60%; margin-top: 12px;">
+		<%:Collecting data...%>
+	</p>
+	<p class="right" style="float: right; width: 40%;">
+		<button class="cbi-button" onclick="event.stopPropagation(); invalidateCache(this);">
+			<%:Invalidate cache%>
+		</button>
 	</p>
 </fieldset>

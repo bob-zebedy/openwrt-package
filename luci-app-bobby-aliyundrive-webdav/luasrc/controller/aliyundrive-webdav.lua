@@ -54,12 +54,25 @@ function index()
         "aliyundrive-webdav",
         "query"
     }, call("action_query_qrcode")).leaf = true
+    entry({
+        "admin",
+        "services",
+        "aliyundrive-webdav",
+        "invalidate-cache"
+    }, call("action_invalidate_cache")).leaf = true
 end
 
 function action_status()
     local e = {}
     e.running = luci.sys.call("pidof aliyundrive-webdav >/dev/null") == 0
     e.application = luci.sys.exec("aliyundrive-webdav --version")
+    luci.http.prepare_content("application/json")
+    luci.http.write_json(e)
+end
+
+function action_invalidate_cache()
+    local e = {}
+    e.ok = luci.sys.call("kill -HUP `pidof aliyundrive-webdav`") == 0
     luci.http.prepare_content("application/json")
     luci.http.write_json(e)
 end

@@ -34,6 +34,21 @@ msgstr "上传缓冲大小 (bytes)"
 msgid "Cache Size"
 msgstr "目录缓存大小"
 
+msgid "Invalidate cache"
+msgstr "清除缓存"
+
+msgid "Prefer HTTP Download"
+msgstr "使用 HTTP 下载"
+
+msgid "Prefer downloading files using HTTP instead of HTTPS protocol"
+msgstr "优先使用 HTTP 而非 HTTPS 协议下载。可降低端设备上降低 CPU 使用率"
+
+msgid "Disable Redirect"
+msgstr "禁用重定向"
+
+msgid "Disable 302 redirect when using app refresh token"
+msgstr "使用 App Refresh Token 时禁用 302 重定向"
+
 msgid "Cache Expiration Time (seconds)"
 msgstr "目录缓存过期时间（秒）"
 
@@ -56,7 +71,7 @@ msgid "Debug Mode"
 msgstr "调试模式"
 
 msgid "Double click the input box above to get refresh token by scanning qrcode"
-msgstr "双击输入框扫码登录自动获取 refresh token"
+msgstr "双击输入框扫码登录自动获取 Refresh Token"
 
 msgid "Restrict access to a folder of aliyundrive, defaults to / which means no restrictions"
 msgstr "限定云盘目录 (/表示不限制)"
