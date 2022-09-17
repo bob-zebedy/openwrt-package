@@ -40,12 +40,6 @@ function index()
         "admin",
         "services",
         "aliyundrive-webdav",
-        "logtail"
-    }, call("action_logtail")).leaf = true
-    entry({
-        "admin",
-        "services",
-        "aliyundrive-webdav",
         "qrcode"
     }, call("action_generate_qrcode")).leaf = true
     entry({
@@ -73,20 +67,6 @@ end
 function action_invalidate_cache()
     local e = {}
     e.ok = luci.sys.call("kill -HUP `pidof aliyundrive-webdav`") == 0
-    luci.http.prepare_content("application/json")
-    luci.http.write_json(e)
-end
-
-function action_logtail()
-    local fs = require "nixio.fs"
-    local log_path = "/var/log/aliyundrive-webdav.log"
-    local e = {}
-    e.running = luci.sys.call("pidof aliyundrive-webdav >/dev/null") == 0
-    if fs.access(log_path) then
-        e.log = luci.sys.exec("tail -n 100 %s | sed 's/\\x1b\\[[0-9;]*m//g'" % log_path)
-    else
-        e.log = ""
-    end
     luci.http.prepare_content("application/json")
     luci.http.write_json(e)
 end
