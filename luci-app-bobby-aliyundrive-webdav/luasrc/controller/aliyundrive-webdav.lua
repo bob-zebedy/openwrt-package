@@ -23,12 +23,6 @@ function index()
         "aliyundrive-webdav",
         "client"
     }, cbi("aliyundrive-webdav/client"), _("Settings"), 10).leaf = true
-    entry({
-        "admin",
-        "services",
-        "aliyundrive-webdav",
-        "log"
-    }, form("aliyundrive-webdav/log"), _("Log"), 30).leaf = true
 
     entry({
         "admin",
@@ -36,18 +30,21 @@ function index()
         "aliyundrive-webdav",
         "status"
     }, call("action_status")).leaf = true
+
     entry({
         "admin",
         "services",
         "aliyundrive-webdav",
         "qrcode"
     }, call("action_generate_qrcode")).leaf = true
+
     entry({
         "admin",
         "services",
         "aliyundrive-webdav",
         "query"
     }, call("action_query_qrcode")).leaf = true
+    
     entry({
         "admin",
         "services",
