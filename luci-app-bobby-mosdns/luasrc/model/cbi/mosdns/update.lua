@@ -1,10 +1,10 @@
 m = Map("mosdns")
 
-s = m:section(TypedSection, "mosdns", translate("Update GeoIP & GeoSite dat"))
+s = m:section(TypedSection, "mosdns")
 s.addremove = false
 s.anonymous = true
 
-enable = s:option(Flag, "geo_auto_update", translate("Enable Auto Database Update"))
+enable = s:option(Flag, "geo_auto_update", translate("Auto Update"))
 enable.rmempty = false
 
 o = s:option(ListValue, "geo_update_week_time", translate("Update Cycle"))
@@ -22,7 +22,7 @@ update_time = s:option(ListValue, "geo_update_day_time", translate("Update Time"
 for t = 0, 23 do
     update_time:value(t, t .. ":00")
 end
-update_time.default = 0
+update_time.default = 1
 
 data_update = s:option(Button, "geo_update_database", translate("Database Update"))
 data_update.rawhtml = true

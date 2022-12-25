@@ -5,10 +5,9 @@
 			var tb = document.getElementById('mosdns_status');
 			if (data && tb) {
 				if (data.running) {
-					var links = '<em><b style=color:green>MosDNS <%:RUNNING%></b></em>';
-					tb.innerHTML = links;
+					tb.innerHTML = '<b style=color:green><%:RUNNING%></b>';
 				} else {
-					tb.innerHTML = '<em><b style=color:red>MosDNS <%:NOT RUNNING%></b></em>';
+					tb.innerHTML = '<b style=color:red><%:NOT RUNNING%></b>';
 				}
 			}
 		}

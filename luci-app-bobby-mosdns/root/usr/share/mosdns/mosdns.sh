@@ -11,7 +11,7 @@ logfile_path() (
 )
 
 interface_dns() (
-	if [ "$(uci -q get mosdns.config.custom_local_dns)" -eq 1 ]; then
+	if [ "$(uci -q get mosdns.config.custom_dns)" -eq 1 ]; then
 		uci -q get mosdns.config.local_dns
 	else
 		peerdns=$(uci -q get network.wan.peerdns)

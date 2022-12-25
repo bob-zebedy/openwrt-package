@@ -1,6 +1,5 @@
 m = Map("mosdns")
 m.title = translate("MosDNS")
-m.description = translate("MosDNS is a 'programmable' DNS forwarder.")
 
 m:section(SimpleSection).template = "mosdns/mosdns_status"
 
@@ -37,41 +36,32 @@ logfile:depends("configfile", "/etc/mosdns/config.yaml")
 redirect = s:option(Flag, "redirect", translate("DNS Forward"), translate("Forward Dnsmasq Domain Name resolution requests to MosDNS"))
 redirect.default = true
 
-custom_local_dns = s:option(Flag, "custom_local_dns", translate("Local DNS"), translate("Follow WAN interface DNS if not enabled"))
-custom_local_dns:depends("configfile", "/etc/mosdns/config.yaml")
-custom_local_dns.default = false
+custom_dns = s:option(Flag, "custom_dns", translate("Custom DNS"), translate("Follow WAN interface DNS if not enabled"))
+custom_dns:depends("configfile", "/etc/mosdns/config.yaml")
+custom_dns.default = false
 
-custom_local_dns = s:option(DynamicList, "local_dns", translate("Upstream DNS servers"))
-custom_local_dns:value("119.29.29.29", "119.29.29.29 (DNSPod Primary)")
-custom_local_dns:value("119.28.28.28", "119.28.28.28 (DNSPod Secondary)")
-custom_local_dns:value("223.5.5.5", "223.5.5.5 (AliDNS Primary)")
-custom_local_dns:value("223.6.6.6", "223.6.6.6 (AliDNS Secondary)")
-custom_local_dns:value("114.114.114.114", "114.114.114.114 (114DNS Primary)")
-custom_local_dns:value("114.114.115.115", "114.114.115.115 (114DNS Secondary)")
-custom_local_dns:value("180.76.76.76", "180.76.76.76 (Baidu DNS)")
-custom_local_dns:depends("custom_local_dns", "1")
+upstream_dns = s:option(DynamicList, "local_dns", translate("Upstream DNS servers"))
+upstream_dns:value("119.29.29.29", "119.29.29.29")
+upstream_dns:value("119.28.28.28", "119.28.28.28")
+upstream_dns:value("223.5.5.5", "223.5.5.5")
+upstream_dns:value("223.6.6.6", "223.6.6.6")
+upstream_dns:depends("custom_dns", "1")
 
-custom_local_dns = s:option(ListValue, "bootstrap_dns", translate("Bootstrap DNS servers"), translate("Bootstrap DNS servers are used to resolve IP addresses of the DoH/DoT resolvers you specify as upstreams"))
-custom_local_dns:value("119.29.29.29", "119.29.29.29 (DNSPod Primary)")
-custom_local_dns:value("119.28.28.28", "119.28.28.28 (DNSPod Secondary)")
-custom_local_dns:value("223.5.5.5", "223.5.5.5 (AliDNS Primary)")
-custom_local_dns:value("223.6.6.6", "223.6.6.6 (AliDNS Secondary)")
-custom_local_dns:value("114.114.114.114", "114.114.114.114 (114DNS Primary)")
-custom_local_dns:value("114.114.115.115", "114.114.115.115 (114DNS Secondary)")
-custom_local_dns:value("180.76.76.76", "180.76.76.76 (Baidu DNS)")
-custom_local_dns.default = "119.29.29.29"
-custom_local_dns:depends("custom_local_dns", "1")
+bootstrap_dns = s:option(ListValue, "bootstrap_dns", translate("Bootstrap DNS servers"), translate("Used to resolve IP addresses of the DoH/DoT resolvers you specify as upstreams"))
+bootstrap_dns:value("119.29.29.29", "119.29.29.29")
+bootstrap_dns:value("119.28.28.28", "119.28.28.28")
+bootstrap_dns:value("223.5.5.5", "223.5.5.5")
+bootstrap_dns:value("223.6.6.6", "223.6.6.6")
+bootstrap_dns.default = "119.29.29.29"
+bootstrap_dns:depends("custom_dns", "1")
 
 remote_dns = s:option(DynamicList, "remote_dns", translate("Remote DNS"))
-remote_dns:value("tls://1.1.1.1", "1.1.1.1 (CloudFlare DNS)")
-remote_dns:value("tls://1.0.0.1", "1.0.0.1 (CloudFlare DNS)")
-remote_dns:value("tls://8.8.8.8", "8.8.8.8 (Google DNS)")
-remote_dns:value("tls://8.8.4.4", "8.8.4.4 (Google DNS)")
-remote_dns:value("tls://9.9.9.9", "9.9.9.9 (Quad9 DNS)")
-remote_dns:value("tls://149.112.112.112", "149.112.112.112 (Quad9 DNS)")
-remote_dns:value("tls://45.11.45.11", "45.11.45.11 (DNS.SB)")
-remote_dns:value("tls://208.67.222.222", "208.67.222.222 (Open DNS)")
-remote_dns:value("tls://208.67.220.220", "208.67.220.220 (Open DNS)")
+remote_dns:value("tls://1.1.1.1", "1.1.1.1")
+remote_dns:value("tls://1.0.0.1", "1.0.0.1")
+remote_dns:value("tls://8.8.8.8", "8.8.8.8")
+remote_dns:value("tls://8.8.4.4", "8.8.4.4")
+remote_dns:value("tls://208.67.222.222", "208.67.222.222")
+remote_dns:value("tls://208.67.220.220", "208.67.220.220")
 remote_dns:depends("configfile", "/etc/mosdns/config.yaml")
 
 remote_dns_pipeline = s:option(Flag, "enable_pipeline", translate("Remote DNS Connection Multiplexing"), translate("Enable TCP/DoT RFC 7766 new Query Pipelining connection multiplexing mode"))
@@ -105,12 +95,11 @@ adblock:depends("configfile", "/etc/mosdns/config.yaml")
 adblock.default = false
 
 adblock = s:option(Value, "ad_source", translate("ADblock Source"))
-adblock:depends("adblock", "1")
-adblock.default = "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt"
 adblock:value("geosite.dat", "v2ray-geosite")
 adblock:value("https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt", "anti-AD")
 adblock:value("https://raw.githubusercontent.com/sjhgvr/oisd/main/dbl_basic.txt", "oisd (basic)")
-adblock:value("https://raw.githubusercontent.com/QiuSimons/openwrt-mos/master/dat/serverlist.txt", "QiuSimons/openwrt-mos")
+adblock.default = "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt"
+adblock:depends("adblock", "1")
 
 reload_service = s:option(Button, "_reload", translate("Reload Service"), translate("Reload service to take effect of new configuration"))
 reload_service.write = function()
@@ -119,9 +108,8 @@ end
 reload_service:depends("configfile", "/etc/mosdns/config_custom.yaml")
 
 config = s:option(TextValue, "manual-config")
-config.description = translate("<font color=\"ff0000\"><strong>View the Custom YAML Configuration file used by this MosDNS. You can edit it as you own need.</strong></font>")
 config.template = "cbi/tvalue"
-config.rows = 25
+config.rows = 30
 config:depends("configfile", "/etc/mosdns/config_custom.yaml")
 
 function config.cfgvalue(self, section)
