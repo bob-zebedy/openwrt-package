@@ -44,7 +44,7 @@ function index()
         "aliyundrive-webdav",
         "query"
     }, call("action_query_qrcode")).leaf = true
-    
+
     entry({
         "admin",
         "services",

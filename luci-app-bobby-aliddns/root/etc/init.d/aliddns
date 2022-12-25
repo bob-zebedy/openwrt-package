@@ -3,13 +3,13 @@
 START=95
 
 restart() {
-	/usr/sbin/aliddns
+    /usr/sbin/aliddns
 }
 
 start() {
-	/usr/sbin/aliddns
+    /usr/sbin/aliddns
 }
 
 stop() {
-	/usr/sbin/aliddns
+    /usr/sbin/aliddns
 }

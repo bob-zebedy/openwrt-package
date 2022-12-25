@@ -1,15 +1,15 @@
 {
-	"luci-app-aliyundrive-webdav": {
-		"description": "Grant UCI access for luci-app-aliyundrive-webdav",
-		"read": {
-			"uci": [
-				"aliyundrive-webdav"
-			]
-		},
-		"write": {
-			"uci": [
-				"aliyundrive-webdav"
-			]
-		}
-	}
+    "luci-app-aliyundrive-webdav": {
+        "description": "Grant UCI access for luci-app-aliyundrive-webdav",
+        "read": {
+            "uci": [
+                "aliyundrive-webdav"
+            ]
+        },
+        "write": {
+            "uci": [
+                "aliyundrive-webdav"
+            ]
+        }
+    }
 }
