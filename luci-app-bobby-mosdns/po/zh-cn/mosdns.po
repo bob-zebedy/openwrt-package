@@ -100,8 +100,8 @@ msgstr "手动配置"
 msgid "Log File"
 msgstr "日志文件"
 
-msgid "Local DNS"
-msgstr "本地 DNS"
+msgid "Custom DNS"
+msgstr "自定义 DNS"
 
 msgid "Follow WAN interface DNS if not enabled"
 msgstr "不启用则使用 WAN 接口 DNS"
