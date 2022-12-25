@@ -45,6 +45,7 @@ upstream_dns:value("119.29.29.29", "119.29.29.29")
 upstream_dns:value("119.28.28.28", "119.28.28.28")
 upstream_dns:value("223.5.5.5", "223.5.5.5")
 upstream_dns:value("223.6.6.6", "223.6.6.6")
+upstream_dns.default = "119.29.29.29"
 upstream_dns:depends("custom_dns", "1")
 
 bootstrap_dns = s:option(ListValue, "bootstrap_dns", translate("Bootstrap DNS servers"), translate("Used to resolve IP addresses of the DoH/DoT resolvers you specify as upstreams"))
