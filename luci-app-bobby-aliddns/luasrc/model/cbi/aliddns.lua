@@ -7,7 +7,8 @@ require("luci.sys")
 local t, e, o
 local m, s
 
-t = Map("aliddns", translate("AliDDNS"))
+t = Map("aliddns")
+t.title = translate("AliDDNS")
 
 e = t:section(TypedSection, "base")
 e.anonymous = true
