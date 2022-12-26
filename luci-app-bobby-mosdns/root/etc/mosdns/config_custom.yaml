@@ -53,8 +53,8 @@ plugins:
     type: fast_forward
     args:
       upstream:
-        - addr: tls://8.8.8.8
         - addr: tls://1.1.1.1
+        - addr: tls://8.8.8.8
 
   - tag: query_is_whitelist_domain
     type: query_matcher
