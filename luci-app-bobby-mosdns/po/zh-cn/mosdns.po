@@ -149,16 +149,16 @@ msgid "Rule Settings"
 msgstr "自定义规则列表"
 
 msgid "White Lists"
-msgstr "白名单"
+msgstr "本地查询列表"
 
 msgid "Block Lists"
-msgstr "黑名单"
+msgstr "域名屏蔽列表"
 
 msgid "Grey Lists"
-msgstr "灰名单"
+msgstr "远程查询列表"
 
 msgid "Redirect"
-msgstr "重定向"
+msgstr "域名重定向列表"
 
 msgid "Block PTR"
 msgstr "PTR 黑名单"

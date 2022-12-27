@@ -13,11 +13,11 @@ s = m:section(TypedSection, "mosdns")
 s.anonymous = true
 
 s:tab("white_list", translate("White Lists"))
-s:tab("block_list", translate("Block Lists"))
 s:tab("grey_list", translate("Grey Lists"))
-s:tab("hosts_list", translate("Hosts"))
+s:tab("block_list", translate("Block Lists"))
 s:tab("redirect_list", translate("Redirect"))
 s:tab("local_ptr_list", translate("Block PTR"))
+s:tab("hosts_list", translate("Hosts"))
 
 o = s:taboption("white_list", TextValue, "whitelist", "")
 o.rows = 30
@@ -30,22 +30,6 @@ o.write = function(self, section, value)
 end
 o.remove = function(self, section, value)
     nixio.fs.writefile(white_list_file, "")
-end
-o.validate = function(self, value)
-    return value
-end
-
-o = s:taboption("block_list", TextValue, "blocklist", "")
-o.rows = 30
-o.wrap = "off"
-o.cfgvalue = function(self, section)
-    return nixio.fs.readfile(block_list_file) or ""
-end
-o.write = function(self, section, value)
-    nixio.fs.writefile(block_list_file, value:gsub("\r\n", "\n"))
-end
-o.remove = function(self, section, value)
-    nixio.fs.writefile(block_list_file, "")
 end
 o.validate = function(self, value)
     return value
@@ -67,17 +51,17 @@ o.validate = function(self, value)
     return value
 end
 
-o = s:taboption("hosts_list", TextValue, "hosts", "")
+o = s:taboption("block_list", TextValue, "blocklist", "")
 o.rows = 30
 o.wrap = "off"
 o.cfgvalue = function(self, section)
-    return nixio.fs.readfile(hosts_list_file) or ""
+    return nixio.fs.readfile(block_list_file) or ""
 end
 o.write = function(self, section, value)
-    nixio.fs.writefile(hosts_list_file, value:gsub("\r\n", "\n"))
+    nixio.fs.writefile(block_list_file, value:gsub("\r\n", "\n"))
 end
 o.remove = function(self, section, value)
-    nixio.fs.writefile(hosts_list_file, "")
+    nixio.fs.writefile(block_list_file, "")
 end
 o.validate = function(self, value)
     return value
@@ -110,6 +94,22 @@ o.write = function(self, section, value)
 end
 o.remove = function(self, section, value)
     nixio.fs.writefile(local_ptr_file, "")
+end
+o.validate = function(self, value)
+    return value
+end
+
+o = s:taboption("hosts_list", TextValue, "hosts", "")
+o.rows = 30
+o.wrap = "off"
+o.cfgvalue = function(self, section)
+    return nixio.fs.readfile(hosts_list_file) or ""
+end
+o.write = function(self, section, value)
+    nixio.fs.writefile(hosts_list_file, value:gsub("\r\n", "\n"))
+end
+o.remove = function(self, section, value)
+    nixio.fs.writefile(hosts_list_file, "")
 end
 o.validate = function(self, value)
     return value
