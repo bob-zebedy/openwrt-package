@@ -23,7 +23,7 @@ msgid "DNS Forward"
 msgstr "DNS 转发"
 
 msgid "Forward Dnsmasq Domain Name resolution requests to MosDNS"
-msgstr "将 Dnsmasq 域名解析请求转发到 MosDNS 服务器"
+msgstr "将 Dnsmasq 请求转发到 MosDNS"
 
 msgid "Enable DNS ADblock"
 msgstr "启用 DNS 广告过滤"
@@ -35,7 +35,7 @@ msgid "Reload Service"
 msgstr "重启服务"
 
 msgid "Reload service to take effect of new configuration"
-msgstr "重启 MosDNS 服务生效配置文件"
+msgstr "重启 MosDNS 服务"
 
 msgid "Geodata Update"
 msgstr "更新数据库"
@@ -131,10 +131,10 @@ msgid "Cache Survival Time"
 msgstr "缓存生存时间（秒）"
 
 msgid "Minimum TTL"
-msgstr "覆盖最小 TTL 值（默认 0）"
+msgstr "最小 TTL 值（默认 0）"
 
 msgid "Maximum TTL"
-msgstr "覆盖最大 TTL 值（默认 0）"
+msgstr "最大 TTL 值（默认 0）"
 
 msgid "Logs"
 msgstr "日志"
