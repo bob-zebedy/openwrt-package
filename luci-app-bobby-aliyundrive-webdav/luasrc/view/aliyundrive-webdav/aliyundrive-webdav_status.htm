@@ -16,7 +16,7 @@
 		XHR.get('<%=url([[admin]], [[services]], [[aliyundrive-webdav]], [[invalidate-cache]])%>', null,
 			function (x, data) {
 				if (data.ok) {
-					alert("缓存已清除");
+					alert("清除缓存成功");
 				} else {
 					alert("清除缓存失败");
 				}
