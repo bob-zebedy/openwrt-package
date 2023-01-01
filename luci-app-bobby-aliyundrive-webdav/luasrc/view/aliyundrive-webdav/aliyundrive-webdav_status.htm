@@ -32,12 +32,14 @@
 	}
 </style>
 <fieldset class="cbi-section">
-	<p id="aliyundrive-webdav_status" style="float: left; width: 60%; margin-top: 12px;">
-		<%:Collecting data...%>
-	</p>
-	<p class="right" style="float: right; width: 40%;">
-		<button class="cbi-button" onclick="event.stopPropagation(); invalidateCache(this);">
-			<%:Invalidate cache%>
-		</button>
-	</p>
+	<div id="aliyundrive-webdav_status" style="width: 100%">
+		<div style="float: left; width: 60%;">
+			<%:Collecting data...%>
+		</div>
+		<div style="float: right; width: 40%;">
+			<button class="cbi-button" style="float: right" onclick="event.stopPropagation(); invalidateCache(this);">
+				<%:Invalidate cache%>
+			</button>
+		</div>
+	</div>
 </fieldset>
