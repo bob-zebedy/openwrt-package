@@ -41,10 +41,10 @@ custom_dns:depends("configfile", "/etc/mosdns/config.yaml")
 custom_dns.default = false
 
 upstream_dns = s:option(DynamicList, "local_dns", translate("Upstream DNS servers"))
-upstream_dns:value("119.29.29.29", "119.29.29.29 (DNSPod Primary)")
-upstream_dns:value("119.28.28.28", "119.28.28.28 (DNSPod Secondary)")
-upstream_dns:value("223.5.5.5", "223.5.5.5 (AliDNS Primary)")
-upstream_dns:value("223.6.6.6", "223.6.6.6 (AliDNS Secondary)")
+upstream_dns:value("119.29.29.29", "119.29.29.29 (DNSPod)")
+upstream_dns:value("119.28.28.28", "119.28.28.28 (DNSPod)")
+upstream_dns:value("223.5.5.5", "223.5.5.5 (AliDNS)")
+upstream_dns:value("223.6.6.6", "223.6.6.6 (AliDNS)")
 upstream_dns.default = "119.29.29.29"
 upstream_dns:depends("custom_dns", "1")
 
