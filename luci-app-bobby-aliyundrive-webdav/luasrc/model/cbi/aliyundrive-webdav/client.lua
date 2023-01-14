@@ -67,7 +67,4 @@ read_only = e:option(Flag, "read_only", translate("Enable read only mode"))
 read_only.description = translate("Disallow upload, modify and delete file operations")
 read_only.rmempty = false
 
-debug = e:option(Flag, "debug", translate("Debug Mode"))
-debug.rmempty = false
-
 return m
