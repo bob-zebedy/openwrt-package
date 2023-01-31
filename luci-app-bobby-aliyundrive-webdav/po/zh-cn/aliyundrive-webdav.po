@@ -1,9 +1,6 @@
 msgid "AliyunDrive"
 msgstr "阿里云盘"
 
-msgid "AliyunDrive WebDAV"
-msgstr "阿里云盘 WebDAV"
-
 msgid "Enable"
 msgstr "启用"
 

@@ -1,5 +1,4 @@
 m = Map("aliyundrive-webdav")
-m.title = translate("AliyunDrive WebDAV")
 
 m:section(SimpleSection).template = "aliyundrive-webdav/aliyundrive-webdav_status"
 
