@@ -1,5 +1,0 @@
-
-config eqos
-	option enabled      0
-	option download     500
-	option upload       20
