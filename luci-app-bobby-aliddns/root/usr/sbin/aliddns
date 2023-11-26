@@ -6,14 +6,17 @@ local_record_id=$(uci get aliddns.base.record_id 2>/dev/null)
 time=$(uci get aliddns.base.time 2>/dev/null)
 aliddns_enable=$(uci get aliddns.base.enable)
 aliddns_telegram_notify=$(uci get aliddns.base.telegram_notify)
-aliddns_telegram_token=$(uci get aliddns.base.telegram_token)
-aliddns_telegram_chatid=$(uci get aliddns.base.telegram_chatid)
 aliddns_domain=$(uci get aliddns.base.domain 2>/dev/null)
 aliddns_name=$(uci get aliddns.base.host 2>/dev/null)
 interface=$(uci get aliddns.base.interface 2>/dev/null)
 timestamp=$(date -u "+%Y-%m-%dT%H%%3A%M%%3A%SZ")
 local_ip=$(ifconfig $interface 2>/dev/null | grep 'inet addr' | awk '{print $2}' | cut -d: -f2 2>/dev/null)
 log_file=/var/log/aliddns.log
+
+if [ "$aliddns_telegram_notify" == "1" ]; then
+    aliddns_telegram_token=$(uci get aliddns.base.telegram_token)
+    aliddns_telegram_chatid=$(uci get aliddns.base.telegram_chatid)
+fi
 
 . /usr/share/libubox/jshn.sh
 
