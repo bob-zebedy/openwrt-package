@@ -1,5 +1,5 @@
 msgid "AliDDNS"
-msgstr "阿里DDNS"
+msgstr "阿里 DDNS"
 
 msgid "Settings"
 msgstr "设置"
