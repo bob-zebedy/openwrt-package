@@ -77,7 +77,7 @@ msgid "Clean rules interval"
 msgstr "清除规则间隔"
 
 msgid "Presentation URL"
-msgstr "演示 URL"
+msgstr "展示 URL"
 
 msgid "UPnP lease file"
 msgstr "UPnP 租约文件"
