@@ -164,7 +164,6 @@ pu = s:taboption(
     "presentation_url",
     translate("Presentation URL")
 )
-pu.placeholder = "http://192.168.50.1/"
 
 lf = s:taboption(
     "advanced", 
